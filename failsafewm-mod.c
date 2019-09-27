@@ -90,7 +90,7 @@ void keyEventHandler (XKeyEvent *event)
       && event->state == Mod4Mask) 
   { XCirculateSubwindowsUp(display,rootWindow);
 	XSetInputFocus(display, PointerRoot, RevertToPointerRoot, CurrentTime);
-  }/* end if Win-Tab */
+  }/* end if Win-z */
   if (event->keycode==XKeysymToKeycode(display,XStringToKeysym("q")) 
       && event->state == Mod4Mask)		
   { sendExitClient(focusedWindow);
@@ -98,19 +98,19 @@ void keyEventHandler (XKeyEvent *event)
   if (event->keycode==XKeysymToKeycode(display,XStringToKeysym("r")) 
       && event->state == Mod4Mask)		
   { system("dmenu_run");
-  }/* end if Win-d */ 
+  }/* end if Win-r */ 
   if (event->keycode==XKeysymToKeycode(display,XStringToKeysym("f")) 
       && event->state == Mod4Mask)		
   { XMoveResizeWindow(display, focusedWindow, 0, 0, 1920, 1080);
-  }/* end if Win-x */
+  }/* end if Win-f */
   if (event->keycode==XKeysymToKeycode(display,XStringToKeysym("Left")) 
       && event->state == Mod4Mask)		
   { XMoveResizeWindow(display, focusedWindow, 0, 0, 960, 1080);
-  }/* end if Win-x */
+  }/* end if Win-Left */
   if (event->keycode==XKeysymToKeycode(display,XStringToKeysym("Right")) 
       && event->state == Mod4Mask)		
   { XMoveResizeWindow(display, focusedWindow, 960, 0, 960, 1080);
-  }/* end if Win-x */                 
+  }/* end if Win-Right */                 
 
 //  }/* end if rootWindow */
 }/* end keyEventHandler */
