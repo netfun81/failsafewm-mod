@@ -6,12 +6,18 @@ This is the great minimal window manager written by Robert Sperling but with the
 4. Changed the other keybinds.
 
 Default configuration:
-  Win + z  cycle through available programs
-  Win + q  close the window under the mouse
-  Win + r  launch dmenu
-  Win + f  make window fullscreen (1920x1080)
-  Win + Left  tile window to left side
-  Win + Right tile window to right side
+  Win + z  cycle through available programs.
+  
+  Win + q  close the window under the mouse.
+  
+  Win + r  launch dmenu.
+  
+  Win + f  make window fullscreen (1920x1080).
+  
+  Win + Left  tile window to left side.
+  
+  Win + Right tile window to right side.
+  
   
   To build:
   gcc -o failsafewm-mod failsafewm-mod.c -lX11
