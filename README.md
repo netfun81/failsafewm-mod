@@ -6,6 +6,7 @@ This is the great minimal window manager written by Robert Sperling but with the
 4. Changed the other keybinds.
 
 Default configuration:
+
   Win + z  cycle through available programs.
   
   Win + q  close the window under the mouse.
