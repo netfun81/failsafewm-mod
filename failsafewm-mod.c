@@ -89,7 +89,10 @@ void keyEventHandler (XKeyEvent *event)
   if (event->keycode == XKeysymToKeycode(display, XStringToKeysym("z")) 
       && event->state == Mod4Mask) 
   { XCirculateSubwindowsUp(display,rootWindow);
-	XSetInputFocus(display, PointerRoot, RevertToPointerRoot, CurrentTime);
+   XQueryPointer(display, rootWindow, &dummyWin, &focusedWindow, 
+                &dummyInt, &dummyInt, &dummyInt, &dummyInt, &dummyInt); 
+	XSetInputFocus(display, focusedWindow, RevertToNone, CurrentTime);
+	XRaiseWindow(display, focusedWindow); 
   }/* end if Win-z */
   if (event->keycode==XKeysymToKeycode(display,XStringToKeysym("q")) 
       && event->state == Mod4Mask)		
