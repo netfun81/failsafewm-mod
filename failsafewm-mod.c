@@ -83,20 +83,22 @@ void grabKeys()
 void keyEventHandler (XKeyEvent *event)
 { int     dummyInt; 
   Window  dummyWin;
-
-  XQueryPointer(display, rootWindow, &dummyWin, &focusedWindow, 
-                &dummyInt, &dummyInt, &dummyInt, &dummyInt, &dummyInt); 
+  
+XQueryPointer(display, rootWindow, &dummyWin, &focusedWindow, &dummyInt, &dummyInt, &dummyInt, &dummyInt, &dummyInt);
+ 
   if (event->keycode == XKeysymToKeycode(display, XStringToKeysym("z")) 
       && event->state == Mod4Mask) 
-  { XCirculateSubwindowsUp(display,rootWindow);
-   XQueryPointer(display, rootWindow, &dummyWin, &focusedWindow, 
-                &dummyInt, &dummyInt, &dummyInt, &dummyInt, &dummyInt); 
-	XSetInputFocus(display, focusedWindow, RevertToNone, CurrentTime);
+  { XCirculateSubwindowsDown(display,rootWindow);
+    XQueryPointer(display, rootWindow, &dummyWin, &focusedWindow, &dummyInt, &dummyInt, &dummyInt, &dummyInt, &dummyInt); 
+	XSetInputFocus(display, focusedWindow, RevertToPointerRoot, CurrentTime);
 	XRaiseWindow(display, focusedWindow); 
   }/* end if Win-z */
   if (event->keycode==XKeysymToKeycode(display,XStringToKeysym("q")) 
       && event->state == Mod4Mask)		
   { sendExitClient(focusedWindow);
+	XQueryPointer(display, rootWindow, &dummyWin, &focusedWindow, &dummyInt, &dummyInt, &dummyInt, &dummyInt, &dummyInt); 
+	XSetInputFocus(display, focusedWindow, RevertToPointerRoot, CurrentTime);
+	XRaiseWindow(display, focusedWindow); 
   }/* end if Win-q */         
   if (event->keycode==XKeysymToKeycode(display,XStringToKeysym("r")) 
       && event->state == Mod4Mask)		
@@ -140,7 +142,8 @@ void sendExitClient(Window clientWindow)
   }
   else 
   { XKillClient(display, clientWindow);
-  }/* end else if found */
+  }
+  /* end else if found */
 }/* end sendExitClient */
 
 /*************************************************************************/
