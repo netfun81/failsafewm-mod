@@ -8,17 +8,17 @@ Based on Failsafewm-0.0.2 written by Robert Sperling, with these changes:
 
 Default configuration:
 
-  Win + z  cycle through available programs.
+  Win + z:  cycle through available programs.
   
-  Win + q  close the window under the mouse.
+  Win + q:  close the window under the mouse.
   
-  Win + r  launch dmenu.
+  Win + r:  launch dmenu.
   
-  Win + f  make window fullscreen (1920x1080).
+  Win + f:  make window fullscreen (1920x1080).
   
-  Win + Left  tile window to left side.
+  Win + Left:  tile window to left side.
   
-  Win + Right tile window to right side.
+  Win + Right:  tile window to right side.
   
  ------------------------------------------------
  
