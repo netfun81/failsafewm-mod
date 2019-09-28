@@ -81,44 +81,43 @@ void grabKeys()
 void keyEventHandler (XKeyEvent *event)
 { int     dummyInt;
   Window  dummyWin;
-  Window  win;
 
 XQueryPointer(display, rootWindow, &dummyWin, &focusedWindow, &dummyInt, &dummyInt, &dummyInt, &dummyInt, &dummyInt);
 
   if (event->keycode == XKeysymToKeycode(display, XStringToKeysym("z"))
       && event->state == Mod4Mask)
-  { if (win = focusedWindow)
-     { XCirculateSubwindowsDown(display,rootWindow);
-	XQueryPointer(display, rootWindow, &dummyWin, &focusedWindow, &dummyInt, &dummyInt, &dummyInt, &dummyInt, &dummyInt); 
+  { if (focusedWindow != None)
+  { XCirculateSubwindowsUp(display,rootWindow);
+	XQueryPointer(display, rootWindow, &dummyWin, &focusedWindow, &dummyInt, &dummyInt, &dummyInt, &dummyInt, &dummyInt);
 	XSetInputFocus(display, focusedWindow, RevertToPointerRoot, CurrentTime);
 	XRaiseWindow(display, focusedWindow);
   }}
   if (event->keycode==XKeysymToKeycode(display,XStringToKeysym("q"))
       && event->state == Mod4Mask)
-  { if (win = focusedWindow)
-     { sendExitClient(focusedWindow);
-	XQueryPointer(display, rootWindow, &dummyWin, &focusedWindow, &dummyInt, &dummyInt, &dummyInt, &dummyInt, &dummyInt); 
+  { if (focusedWindow != None)
+  { sendExitClient(focusedWindow);
+	XQueryPointer(display, rootWindow, &dummyWin, &focusedWindow, &dummyInt, &dummyInt, &dummyInt, &dummyInt, &dummyInt);
 	XSetInputFocus(display, focusedWindow, RevertToPointerRoot, CurrentTime);
 	XRaiseWindow(display, focusedWindow);
   }}
   if (event->keycode==XKeysymToKeycode(display,XStringToKeysym("r"))
       && event->state == Mod4Mask)
-     { system("dmenu_run");
+  { system("dmenu_run");
   }
   if (event->keycode==XKeysymToKeycode(display,XStringToKeysym("f"))
       && event->state == Mod4Mask)
-  { if (win = focusedWindow)
-     { XMoveResizeWindow(display, focusedWindow, 0, 0, 1920, 1080);
+  { if (focusedWindow != None)
+  { XMoveResizeWindow(display, focusedWindow, 0, 0, 1920, 1080);
   }}
   if (event->keycode==XKeysymToKeycode(display,XStringToKeysym("Left"))
       && event->state == Mod4Mask)
-  { if (win = focusedWindow)
-     { XMoveResizeWindow(display, focusedWindow, 0, 0, 960, 1080);
+  { if (focusedWindow != None)
+  { XMoveResizeWindow(display, focusedWindow, 0, 0, 960, 1080);
   }}
   if (event->keycode==XKeysymToKeycode(display,XStringToKeysym("Right"))
       && event->state == Mod4Mask)
-  { if (win = focusedWindow)
-     { XMoveResizeWindow(display, focusedWindow, 960, 0, 960, 1080);
+  { if (focusedWindow != None)
+  { XMoveResizeWindow(display, focusedWindow, 960, 0, 960, 1080);
   }}
 }/* end keyEventHandler */
 
